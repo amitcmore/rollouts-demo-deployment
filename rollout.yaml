@@ -35,18 +35,20 @@ spec:
 #     blueGreen:
 #       activeService: rollouts-demo
 #       previewService: rollouts-demo-preview
-#     canary: 
-#       steps:
-#       - setWeight: 20
-#       - pause: {}
-      canary:
+      canary: 
+       steps:
+       - setWeight: 20
+       - pause: {}
+       - setWeight: 50
+       - pause: { duration: 120 } # two minutes
+      #canary:
       # Reference to a Service which the controller will update to point to the canary ReplicaSet
       #  canaryService: rollouts-demo-canary
-        canaryService: rollouts-demo-preview
+      #  canaryService: rollouts-demo-preview
       # Reference to a Service which the controller will update to point to the stable ReplicaSet
-        stableService: rollouts-demo
-        trafficRouting:
-          nginx:
+      #  stableService: rollouts-demo
+      #  trafficRouting:
+      #    nginx:
           # Reference to an Ingress which has a rule pointing to the stable service (e.g. rollouts-demo-stable)
           # This ingress will be cloned with a new name, in order to achieve NGINX traffic splitting.
-            stableIngress: rollouts-demo
+      #      stableIngress: rollouts-demo
