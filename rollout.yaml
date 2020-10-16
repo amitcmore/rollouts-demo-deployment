@@ -42,7 +42,7 @@ spec:
       canary:
       # Reference to a Service which the controller will update to point to the canary ReplicaSet
       #  canaryService: rollouts-demo-canary
-         canaryService: rollouts-demo-preview
+        canaryService: rollouts-demo-preview
       # Reference to a Service which the controller will update to point to the stable ReplicaSet
         stableService: rollouts-demo
         trafficRouting:
